@@ -1,0 +1,15 @@
+<h1>Posts List</h1>
+
+<div *ngIf="posts$ | async; else loading">
+    <ul>
+      <li *ngFor="let post of posts$ | async; index as i">
+        <a style="text-decoration: none; color: black" routerLink="/post/{{post.id}}" >
+          <h4>{{post.title}}</h4>
+        </a>
+      </li>
+    </ul>
+  </div>
+  
+  <ng-template #loading>
+    <p>loading</p>
+  </ng-template>

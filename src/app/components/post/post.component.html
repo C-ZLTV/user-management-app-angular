@@ -1,0 +1,13 @@
+<div *ngIf="post$ | async as post; else loading">
+    <h4>{{post.title}}</h4>
+    <p>By user: {{post.id}}</p>
+    <p>{{post.body}}</p>
+</div>
+
+<ng-template #loading>
+    <p>loading</p>
+</ng-template>
+
+<app-comments [postId]="id"></app-comments>
+
+<button (click)="goBack()">Go back</button>

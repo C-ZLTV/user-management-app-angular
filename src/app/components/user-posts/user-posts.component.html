@@ -1,0 +1,13 @@
+<div *ngIf="userPosts$ | async; else loading">
+    <ul *ngFor="let post of userPosts$ | async">
+        <li>
+            <a routerLink="/post/{{post.id}}">
+                <h4>{{post.title}}</h4>
+            </a>
+        </li>
+    </ul>
+</div>
+
+<ng-template #loading>
+    <p>loading</p>
+</ng-template>
