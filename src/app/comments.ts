@@ -1,8 +1,10 @@
-export interface Comment {
-    id: number,
-    post_id: number,
-    name: string,
-    email: string,
-    body: string,
+export class Comment {
+    constructor(
+     public id: number,
+     public post_id: number,
+     public name: string,
+     public email: string,
+     public body: string,
+    ){}
     
 }

@@ -1,7 +1,19 @@
-<!-- <div>
-    <ul *ngFor="let comment of comments$ | async">
-        <li>Comment: {{comment.id}}</li>
-    </ul>
-</div> -->
+<h3>Comments</h3>
 
-<p>Comment id: {{postId}}</p>
+<div *ngIf="comments$ | async">
+    <ul *ngFor="let comment of comments">
+        <li>{{comment.body}}</li>
+    </ul>
+
+    <form #commentFrom="ngForm" (ngSubmit)="addComment(comment.value)">
+        <label for="comment">Write a a new comment</label>
+        <input 
+        id="comment" 
+        required
+        #comment>
+        <button type="submit">Comment</button>
+    </form>
+</div>
+
+
+
