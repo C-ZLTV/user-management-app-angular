@@ -1,25 +1,21 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders} from '@angular/common/http';
 import { User } from './user';
-import { Observable } from 'rxjs';
-import { map, of,from, tap } from 'rxjs';
+import { Observable, catchError } from 'rxjs';
+import { map, of,from, tap,} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UsersService {
 
-  persone = from([
-    {nome: 'luca1', cognome: 'rossi1', id: 0},
-    {nome: 'luca2', cognome: 'rossi2', id: 1},
-    {nome: 'luca3', cognome: 'rossi3', id: 2},
-    {nome: 'luca4', cognome: 'rossi4', id: 3},
-    {nome: 'luca5', cognome: 'rossi5', id: 4},
-  ])
-
   constructor(private http: HttpClient) { }
 
   url: string = 'https://gorest.co.in/public/v2/users'
+
+  httpOptions = {
+    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+  };
 
   getUsersObs(): Observable<User[]>{
     return this.http.get<User[]>(this.url)
@@ -31,17 +27,28 @@ export class UsersService {
     )
   }
 
-  getPersona(){
-    return this.persone.pipe(
-      map((persona) => persona.id)
-    ).subscribe(console.log)
+  searchUser(input: string): Observable<User[]>{
+    if (!input.trim()) {
+      return of([]);
+    }
+
+    return this.http.get<User[]>(`${this.url}/?name=${input}`) as Observable<User[]>
+  }
+
+  addUser(user: User){
+    return this.http.post<User>(this.url, user, this.httpOptions)
+  }
+
+  deleteUser(id: number): Observable<User> {
+    return this.http.delete<User>(`${this.url}/${id}`, this.httpOptions)
   }
 }
 
-//find() returns the first element in the array that satifies the provited testing function
+
+
 
 //map() in TS will loop over items in the array and change the values based on the function
 
-//map in RxJS won't loop over the item for anf http request but will do so for other observables
+//map in RxJS won't loop over the item for an http request but will do so for other observables
 
 //of() gives stream of data

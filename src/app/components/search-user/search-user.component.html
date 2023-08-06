@@ -1,0 +1,11 @@
+<div>
+    <label for="search-user-box">Hero Search</label>
+    <input #searchUserInput id="search-user-box" (input)="search(searchUserInput.value)" />
+    <ul>
+        <li *ngFor="let user of users$ | async">
+            <a routerLink="/users/user/{{user.id}}">
+                {{user.name}}
+            </a>
+        </li>
+    </ul>
+</div>

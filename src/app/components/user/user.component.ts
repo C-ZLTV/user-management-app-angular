@@ -35,7 +35,7 @@ export class UserComponent implements OnInit{
           console.log(this.id)}));
     }
 
-    gotoHeroes() {
+    gotoUsers() {
       this.router.navigate(['users']);
     }
 

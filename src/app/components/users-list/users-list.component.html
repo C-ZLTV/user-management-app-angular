@@ -1,13 +1,44 @@
 <h1>Users List</h1>
 
 <div *ngIf="users$ | async; else loading">
+  <app-search-user></app-search-user>
   <ul>
-    <li *ngFor="let user of users$ | async; index as i">
+    <li *ngFor="let user of users">
         <a routerLink="user/{{user.id}}">
           {{user.name}} {{user.status}}
         </a>
+        <button (click)="deleteUser(user)">Delete</button>
       </li>
   </ul>
+
+  <form #userDetails="ngForm" (ngSubmit)="addUser(email.value, gender.value, name.value)">
+    <label for="user-email">Email*</label>
+    <input 
+    id="user-email" 
+    [(ngModel)]="model.email" 
+    name="email" 
+    required
+    #email="ngModel">
+    <label for="user-gender">Gender*</label>
+    <input 
+    id="user-gender"
+    [(ngModel)]="model.gender"
+    name="gender"
+    required
+    #gender="ngModel">
+    <label for="user-name">Name*</label>
+    <input
+    id="user-name"
+    [(ngModel)]="model.name"
+    name="name"
+    required
+    #name="ngModel">
+    <div [hidden]="userDetails.form.valid">
+      <p>All fields are required</p>
+    </div>
+    <button type="submit" [disabled]="!userDetails.form.valid">Add User</button>
+  </form>
+
 </div>
 
 <ng-template #loading>

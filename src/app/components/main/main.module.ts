@@ -9,6 +9,11 @@ import { PostsListComponent } from '../posts-list/posts-list.component';
 import { UserComponent } from '../user/user.component';
 import { UserPostsComponent } from '../user-posts/user-posts.component';
 import { UsersListComponent } from '../users-list/users-list.component';
+import { SearchUserComponent } from '../search-user/search-user.component';
+
+
+import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -19,10 +24,13 @@ import { UsersListComponent } from '../users-list/users-list.component';
     UserComponent,
     UserPostsComponent,
     UsersListComponent,
-  ],
+    SearchUserComponent,
+    ],
   imports: [
     CommonModule,
-    MainRoutingModule
+    MainRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
   ]
 })
 export class MainModule { }
