@@ -1,6 +1,10 @@
-export interface Post {
-    id: number,
-    user_id: number,
-    title: string,
-    body: string,
+export class Post {
+
+    constructor(
+     public id: number,
+     public user_id: number,
+     public title: string,
+     public body: string,
+    ){}
+    
 }

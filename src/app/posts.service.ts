@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from '@angular/common/http'
+import {HttpClient, HttpHeaders} from '@angular/common/http'
 import {Post} from './post'
 import { Observable, map } from 'rxjs';
 
@@ -10,7 +10,11 @@ import { Observable, map } from 'rxjs';
 export class PostsService {
 
   constructor(private http: HttpClient) {}
+
   url: string = 'https://gorest.co.in/public/v2/posts'
+  httpOption = {
+    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+  };
 
   getPostsObs(): Observable<Post[]>{
     return this.http.get<Post[]>(this.url)
@@ -26,5 +30,9 @@ export class PostsService {
     return this.getPostsObs().pipe(
       map((posts: Post[]) => posts.filter((post: Post) => post.user_id === id)!)
     )
+  }
+
+  addPost(post: Post){
+    this.http.post<Post>(this.url, post, this.httpOption)
   }
 }

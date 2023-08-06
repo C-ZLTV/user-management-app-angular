@@ -23,8 +23,21 @@ export class PostsListComponent implements OnInit {
     return this.posts$ = this.postsService
       .getPostsObs()
       .pipe(
-        tap(data => 
-          {this.posts = data})
+        tap(data => {this.posts = data})
       )
+  }
+
+  addPost(title: string, body: string){
+    const post = {
+     id: 12345,
+     user_id: 12345,
+     title,
+     body,
+    }
+
+    if(title && body){
+      this.posts.push(post as Post)
+      this.postsService.addPost(post as Post)
+    }
   }
 }
