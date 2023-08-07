@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable, tap } from 'rxjs';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Post } from 'src/app/post';
 import { PostsService } from 'src/app/posts.service';
 
@@ -12,12 +13,17 @@ export class PostsListComponent implements OnInit {
 
   constructor(private postsService: PostsService){}
 
-  posts$!: Observable<Post[]>
-  posts!: Post[]
-
   ngOnInit(): void {
     this.getPosts()
   }
+
+  postForm = new FormGroup({
+    title: new FormControl('', [Validators.required]),
+    body: new FormControl('', [Validators.required]),
+  })
+
+  posts$!: Observable<Post[]>
+  posts!: Post[]
 
   getPosts(){
     return this.posts$ = this.postsService
@@ -35,9 +41,8 @@ export class PostsListComponent implements OnInit {
      body,
     }
 
-    if(title && body){
-      this.posts.push(post as Post)
-      this.postsService.addPost(post as Post)
-    }
+   
+    this.posts.push(post as Post)
+    this.postsService.addPost(post as Post)
   }
 }

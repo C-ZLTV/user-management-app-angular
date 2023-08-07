@@ -1,6 +1,15 @@
 <h1>Posts List</h1>
 
 <div *ngIf="posts$ | async; else loading">
+
+  <form [formGroup]="postForm" (ngSubmit)="addPost(title.value, body. value)">
+    <label for="post-title">title</label>
+    <input id="post-title" #title formControlName="title">
+    <label for="post-body">body</label>
+    <input id="post-body" #body formControlName="body">
+    <button [disabled]="postForm.invalid">Post</button>
+  </form>
+  
     <ul>
       <li *ngFor="let post of posts$ | async; index as i">
         <a style="text-decoration: none; color: black" routerLink="/post/{{post.id}}" >
@@ -8,15 +17,6 @@
         </a>
       </li>
     </ul>
-
-
-    <form #PostForm="ngForm" (ngSubmit)="addPost(title.value, body.value)">
-      <label for="post-title">title</label>
-      <input name="post-title" id="post-title" #title>
-      <label for="post-body">body</label>
-      <input name="post-body" id="post-body" #body>
-      <button>Post</button>
-    </form>
   </div>
   
   <ng-template #loading>
