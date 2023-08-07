@@ -44,6 +44,7 @@ export class UsersListComponent implements OnInit {
       }
 
       this.users.push(user as User);
+
       this.usersService.addUser(user as User).subscribe()
     }
 }
