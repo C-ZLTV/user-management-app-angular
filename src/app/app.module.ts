@@ -5,9 +5,9 @@ import {HttpClientModule} from '@angular/common/http'
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { UsersService } from './users.service';
+import { UsersService } from './services/users/users.service';
 
-import { MainModule } from './components/main/main.module';
+import { MainModule } from './modules/main/main.module';
 
 
 @NgModule({

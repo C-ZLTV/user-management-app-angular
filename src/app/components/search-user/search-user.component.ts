@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { UsersService } from 'src/app/users.service';
+import { UsersService } from 'src/app/services/users/users.service';
 import { Observable, Subject, debounceTime, distinctUntilChanged, switchMap, tap } from 'rxjs';
-import { User } from 'src/app/user';
+import { User } from 'src/app/services/users/user';
 
 @Component({
   selector: 'app-search-user',

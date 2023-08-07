@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { UsersService } from 'src/app/users.service';
-import { User } from 'src/app/user';
+import { UsersService } from 'src/app/services/users/users.service';
+import { User } from 'src/app/services/users/user';
 import { ActivatedRoute } from '@angular/router';
 import { Observable, tap } from 'rxjs';
 

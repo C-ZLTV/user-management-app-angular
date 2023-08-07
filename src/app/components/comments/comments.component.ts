@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Comment } from 'src/app/comments';
-import { CommentsService } from 'src/app/comments.service';
+import { Comment } from 'src/app/services/comments/comments';
+import { CommentsService } from 'src/app/services/comments/comments.service';
 import { Observable, tap } from 'rxjs';
 
 @Component({

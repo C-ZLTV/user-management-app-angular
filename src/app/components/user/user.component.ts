@@ -1,8 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 
-import { UsersService } from 'src/app/users.service';
-import { User } from 'src/app/user';
+import { UsersService } from 'src/app/services/users/users.service';
+import { User } from 'src/app/services/users/user';
 
 import { Observable, switchMap, tap } from 'rxjs';
 

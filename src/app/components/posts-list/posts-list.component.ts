@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable, tap } from 'rxjs';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { Post } from 'src/app/post';
-import { PostsService } from 'src/app/posts.service';
+import { Post } from 'src/app/services/posts/post';
+import { PostsService } from 'src/app/services/posts/posts.service';
 
 @Component({
   selector: 'app-posts-list',

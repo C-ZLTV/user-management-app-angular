@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { Observable, switchMap, tap } from 'rxjs';
-import { Post } from 'src/app/post';
-import { PostsService } from 'src/app/posts.service';
+import { Post } from 'src/app/services/posts/post';
+import { PostsService } from 'src/app/services/posts/posts.service';
 import { Location } from '@angular/common';
 
 @Component({
