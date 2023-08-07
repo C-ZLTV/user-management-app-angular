@@ -41,7 +41,6 @@ export class PostsListComponent implements OnInit {
      body,
     }
 
-   
     this.posts.push(post as Post)
     this.postsService.addPost(post as Post)
   }

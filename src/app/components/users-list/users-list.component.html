@@ -12,31 +12,29 @@
   </ul>
 
   <form #userDetails="ngForm" (ngSubmit)="addUser(email.value, gender.value, name.value)">
-    <label for="user-email">Email*</label>
+    <label for="email">Email*</label>
     <input 
-    id="user-email" 
-    [(ngModel)]="model.email" 
-    name="email" 
+    id="email" 
+    name="email"
+    ngModel
     required
-    #email="ngModel">
-    <label for="user-gender">Gender*</label>
+    #email>
+    <label for="gender">Gender*</label>
     <input 
-    id="user-gender"
-    [(ngModel)]="model.gender"
+    id="gender"
     name="gender"
+    ngModel
     required
-    #gender="ngModel">
-    <label for="user-name">Name*</label>
+    #gender>
+    <label for="name">Name*</label>
     <input
-    id="user-name"
-    [(ngModel)]="model.name"
+    id="name"
     name="name"
+    ngModel
     required
-    #name="ngModel">
-    <div [hidden]="userDetails.form.valid">
-      <p>All fields are required</p>
-    </div>
-    <button type="submit" [disabled]="!userDetails.form.valid">Add User</button>
+    #name>
+    <p [hidden]="!userDetails.touched">All fields are required</p>
+    <button type="submit" [disabled]="userDetails.invalid">Add User</button>
   </form>
 </div>
 

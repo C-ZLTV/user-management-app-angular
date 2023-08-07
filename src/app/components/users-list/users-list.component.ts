@@ -19,8 +19,6 @@ export class UsersListComponent implements OnInit {
     users$!: Observable<User[]>
     users!: User[]
 
-    model = new User(12345, 'email@example.com', 'gender', 'name', 'active' )
-
     ngOnInit(): void {
       this.getUsers()
     }
@@ -46,10 +44,7 @@ export class UsersListComponent implements OnInit {
       }
 
       this.users.push(user as User);
-
       this.usersService.addUser(user as User).subscribe()
-
-      console.log('hey')
     }
 }
 
