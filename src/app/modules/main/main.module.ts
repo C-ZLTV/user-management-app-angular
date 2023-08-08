@@ -10,6 +10,7 @@ import { UserComponent } from '../../components/user/user.component';
 import { UserPostsComponent } from '../../components/user-posts/user-posts.component';
 import { UsersListComponent } from '../../components/users-list/users-list.component';
 import { SearchUserComponent } from '../../components/search-user/search-user.component';
+import { LoginComponent } from 'src/app/components/login/login.component';
 
 
 import { FormsModule } from '@angular/forms';
@@ -25,6 +26,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     UserPostsComponent,
     UsersListComponent,
     SearchUserComponent,
+    LoginComponent,
     ],
   imports: [
     CommonModule,

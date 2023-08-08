@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http'
 import {Post} from './post'
 import { Observable, map } from 'rxjs';
+import { AuthService } from 'src/app/auth/auth.service';
 
 
 @Injectable({
@@ -9,7 +10,9 @@ import { Observable, map } from 'rxjs';
 })
 export class PostsService {
 
-  constructor(private http: HttpClient) {}
+  constructor(
+    private http: HttpClient,
+    private auth: AuthService) {}
 
   url: string = 'https://gorest.co.in/public/v2/posts'
   httpOption = {
@@ -17,7 +20,8 @@ export class PostsService {
   };
 
   getPostsObs(): Observable<Post[]>{
-    return this.http.get<Post[]>(this.url)
+    const headers: HttpHeaders = this.auth.getHeaders()
+    return this.http.get<Post[]>(this.url, {headers})
   }
 
   getPost(id: number | string): Observable<Post>{
@@ -33,6 +37,7 @@ export class PostsService {
   }
 
   addPost(post: Post){
-    this.http.post<Post>(this.url, post, this.httpOption)
+    const headers: HttpHeaders = this.auth.getHeaders()
+    this.http.post<Post>(this.url, post, {headers})
   }
 }

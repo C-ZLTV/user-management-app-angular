@@ -3,22 +3,24 @@ import { HttpClient, HttpHeaders} from '@angular/common/http';
 import { User } from './user';
 import { Observable, catchError } from 'rxjs';
 import { map, of,from, tap,} from 'rxjs';
+import { AuthService } from 'src/app/auth/auth.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UsersService {
 
-  constructor(private http: HttpClient) { }
+  constructor(
+    private http: HttpClient,
+    private auth: AuthService
+    ) { }
 
   url: string = 'https://gorest.co.in/public/v2/users'
 
-  httpOptions = {
-    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
-  };
 
   getUsersObs(): Observable<User[]>{
-    return this.http.get<User[]>(this.url)
+    const headers: HttpHeaders = this.auth.getHeaders()
+    return this.http.get<User[]>(this.url, {headers})
   }
 
   getUser(id: number): Observable<User> {
@@ -31,16 +33,19 @@ export class UsersService {
     if (!input.trim()) {
       return of([]);
     }
+    const headers: HttpHeaders = this.auth.getHeaders()
 
-    return this.http.get<User[]>(`${this.url}/?name=${input}`) as Observable<User[]>
+    return this.http.get<User[]>(`${this.url}/?name=${input}`, {headers}) as Observable<User[]>
   }
 
-  addUser(user: User){
-    return this.http.post<User>(this.url, user, this.httpOptions)
+  addUser(user: User): Observable<User>{
+    const headers: HttpHeaders = this.auth.getHeaders()
+    return this.http.post<User>(this.url, user, {headers})
   }
 
   deleteUser(id: number): Observable<User> {
-    return this.http.delete<User>(`${this.url}/${id}`, this.httpOptions)
+    const headers: HttpHeaders = this.auth.getHeaders()
+    return this.http.delete<User>(`${this.url}/${id}`, {headers})
   }
 }
 

@@ -1,18 +1,20 @@
 import { Component, OnInit } from '@angular/core';
-import { UsersService } from './services/users/users.service';
+import { AuthService } from './auth/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit { 
+export class AppComponent { 
 
-  constructor(private service: UsersService){}
+  constructor(
+    private auth: AuthService,
+    private route: Router){}
 
-  user: any
-  ngOnInit(): void {
-    // this.user = this.service.getUser(4040697)
-    // .subscribe((data) => console.log(data))
+  logout(){
+    this.auth.logout()
+    this.route.navigate(['/login'])
   }
 }

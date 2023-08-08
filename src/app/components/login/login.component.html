@@ -1,0 +1,6 @@
+<form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)">
+    <label for="token">Insert your token</label>
+    <input type="text" name="token" id="token" ngModel #token>
+    <button type="submit">Login</button>
+</form>
+<p>Don't have a token? Generate it <a href="https://gorest.co.in/consumer/login" target="_blank" rel="noopener">here</a></p>
