@@ -3,22 +3,49 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import {HttpClientModule} from '@angular/common/http'
 
+import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { UsersService } from './services/users/users.service';
 
-import { MainModule } from './modules/main/main.module';
+
+import { CommentsComponent } from './components/comments/comments.component';
+import { PostComponent } from './components/post/post.component';
+import { PostsListComponent } from './components/posts-list/posts-list.component';
+import { UserComponent } from './components/user/user.component';
+import { LoginComponent } from './components/login/login.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { SearchUserComponent } from './components/search-user/search-user.component';
+import { UserPostsComponent } from './components/user-posts/user-posts.component';
+import { UsersListComponent } from './components/users-list/users-list.component';
+import { HomepageComponent } from './components/homepage/homepage.component';
+import { Four0fourComponent } from './components/four0four/four0four.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
+    CommentsComponent,
+    PostComponent,
+    PostsListComponent,
+    UserComponent,
+    UserPostsComponent,
+    UsersListComponent,
+    SearchUserComponent,
+    LoginComponent,
+    NavbarComponent,
+    HomepageComponent,
+    Four0fourComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    MainModule,
+    FormsModule,
+    ReactiveFormsModule,
+  
   ],
   providers: [UsersService],
   bootstrap: [AppComponent]

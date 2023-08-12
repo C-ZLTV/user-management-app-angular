@@ -1,0 +1,12 @@
+<div *ngIf="isLoggedIn; else login">
+    <button routerLink="users">Users</button>
+    <button routerLink="posts">Posts</button>
+    <button (click)="logout()">Logout</button>
+</div>
+
+<ng-template #login >
+    <div>
+        <button routerLink="homepage">Home</button>
+        <button routerLink="login">Login</button>
+    </div>
+</ng-template>

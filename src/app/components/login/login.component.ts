@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { AuthService } from 'src/app/auth/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -9,12 +10,14 @@ import { AuthService } from 'src/app/auth/auth.service';
 })
 export class LoginComponent {
 
-  constructor(private auth:  AuthService){}
+  constructor(
+    private auth:  AuthService,
+    private route: Router){}
 
   onSubmit(form: NgForm){
     const token = form.value.token
     this.auth.autheticateWithToken(token)
-    console.log(this.auth.getToken())
+    this.auth.setLoggedIn(this.auth.isLoggedIn());
+    this.route.navigate(['/users'])
   }
-
 }
