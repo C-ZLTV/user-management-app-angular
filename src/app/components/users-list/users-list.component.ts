@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UsersService } from 'src/app/services/users/users.service';
 import { User } from 'src/app/services/users/user';
 import { ActivatedRoute } from '@angular/router';
-import { Observable, tap } from 'rxjs';
+import { Observable, catchError, tap, of } from 'rxjs';
 
 
 @Component({
@@ -19,14 +19,19 @@ export class UsersListComponent implements OnInit {
     users$!: Observable<User[]>
     users!: User[]
 
+    error: Error | null = null
+
     ngOnInit(): void {
       this.getUsers()
     }
 
     getUsers(){
       return this.users$ = this.usersService
-      .getUsersObs()
-      .pipe(tap((data) => {this.users = data}))
+      .getUsersObs().pipe(
+        tap(data => this.users = data),
+        tap({error: (error: Error) => this.error = error}),
+        catchError(error => of([]))
+        )
     }
 
     deleteUser(user: User): void{

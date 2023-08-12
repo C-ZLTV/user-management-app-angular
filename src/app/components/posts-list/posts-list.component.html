@@ -1,8 +1,10 @@
 <h1>Posts List</h1>
 
+<h3 *ngIf="error">{{error}}</h3>
+
 <div *ngIf="posts$ | async; else loading">
 
-  <form [formGroup]="postForm" (ngSubmit)="addPost(title.value, body. value)">
+  <form [formGroup]="postForm" (ngSubmit)="addPost(title.value, body. value)" [hidden]="error">
     <label for="post-title">title</label>
     <input id="post-title" #title formControlName="title">
     <label for="post-body">body</label>

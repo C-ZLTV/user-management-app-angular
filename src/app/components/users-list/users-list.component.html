@@ -1,7 +1,9 @@
 <h1>Users List</h1>
 
+<h3 *ngIf="error">{{error}}</h3>
+
 <div *ngIf="users$ | async; else loading">
-  <app-search-user></app-search-user>
+  <app-search-user [hidden]="error"></app-search-user>
   <ul>
     <li *ngFor="let user of users">
         <a routerLink="user/{{user.id}}">
@@ -11,7 +13,7 @@
       </li>
   </ul>
 
-  <form #userDetails="ngForm" (ngSubmit)="addUser(email.value, gender.value, name.value)">
+  <form #userDetails="ngForm" (ngSubmit)="addUser(email.value, gender.value, name.value)" [hidden]="error">
     <label for="email">Email*</label>
     <input 
     id="email" 

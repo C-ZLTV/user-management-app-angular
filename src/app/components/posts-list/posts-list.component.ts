@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable, tap } from 'rxjs';
+import { Observable, catchError, tap, of } from 'rxjs';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Post } from 'src/app/services/posts/post';
 import { PostsService } from 'src/app/services/posts/posts.service';
@@ -24,13 +24,15 @@ export class PostsListComponent implements OnInit {
 
   posts$!: Observable<Post[]>
   posts!: Post[]
+  error: Error | null = null
 
   getPosts(){
     return this.posts$ = this.postsService
       .getPostsObs()
       .pipe(
-        tap(data => {this.posts = data})
-      )
+        tap(data => {this.posts = data}),
+        tap({error: (error) => this.error = error}),
+        catchError(error => of([])), )
   }
 
   addPost(title: string, body: string){

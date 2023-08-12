@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http'
 import {Post} from './post'
-import { Observable, map } from 'rxjs';
+import { Observable, catchError, map, throwError } from 'rxjs';
 import { AuthService } from 'src/app/auth/auth.service';
 
 
@@ -15,13 +15,15 @@ export class PostsService {
     private auth: AuthService) {}
 
   url: string = 'https://gorest.co.in/public/v2/posts'
-  httpOption = {
-    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
-  };
+ 
 
   getPostsObs(): Observable<Post[]>{
     const headers: HttpHeaders = this.auth.getHeaders()
-    return this.http.get<Post[]>(this.url, {headers})
+    return this.http.get<Post[]>(this.url, {headers}).pipe(
+      catchError(() => {
+        return throwError(() => new Error('Couldn\'t load users'))
+      })
+    )
   }
 
   getPost(id: number | string): Observable<Post>{
