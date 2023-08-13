@@ -78,6 +78,16 @@ describe('UsersService', () => {
     req.flush(mockUsers);
   });
 
+  it('should handle empty search', () => {
+    const searchTerm = '';
+    
+    usersService.searchUser(searchTerm).subscribe((users: User[]) => {
+      expect(users).toEqual([]);
+    });
+    
+    httpTestingController.expectNone('https://gorest.co.in/public/v2/users');
+  });
+
   it('should add a user', () => {
     const newUser: User = {id: 1, email: 'email1', gender: 'gender1', name: 'nam1', status: 'status1' };
 
