@@ -40,6 +40,6 @@ export class PostsService {
 
   addPost(post: Post){
     const headers: HttpHeaders = this.auth.getHeaders()
-    this.http.post<Post>(this.url, post, {headers})
+    return this.http.post<Post>(this.url, post, {headers})
   }
 }
