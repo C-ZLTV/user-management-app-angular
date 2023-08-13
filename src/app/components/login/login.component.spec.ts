@@ -1,21 +1,23 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
-import { RouterTestingModule } from '@angular/router/testing';
-import { AuthService } from 'src/app/auth/auth.service';
-import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
-
 import { LoginComponent } from './login.component';
+import { AuthService } from 'src/app/auth/auth.service';
+import { Router } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
 describe('LoginComponent', () => {
   let component: LoginComponent;
   let fixture: ComponentFixture<LoginComponent>;
 
-  beforeEach( async () => {
-    await TestBed.configureTestingModule({
-      imports: [RouterTestingModule, FormsModule, HttpClientModule],
+  const mockAuthService = jasmine.createSpyObj('AuthService', ['autheticateWithToken', 'setLoggedIn', 'isLoggedIn']);
+  const mockRouter = jasmine.createSpyObj('Router', ['navigate']);
+
+  beforeEach( () => {
+     TestBed.configureTestingModule({
+      imports: [ FormsModule],
       declarations: [LoginComponent],
-      providers: [AuthService]
+      providers: [
+        { provide: AuthService, useValue: mockAuthService },
+        { provide: Router, useValue: mockRouter }]
     });
     fixture = TestBed.createComponent(LoginComponent);
     component = fixture.componentInstance;
