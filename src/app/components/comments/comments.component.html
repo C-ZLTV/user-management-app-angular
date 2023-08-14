@@ -1,17 +1,21 @@
 <h3>Comments</h3>
 
+<h4 *ngIf="error">{{error}}</h4>
+
 <div *ngIf="comments$ | async">
     <ul *ngFor="let comment of comments">
         <li>{{comment.body}}</li>
     </ul>
 
-    <form #commentFrom="ngForm" (ngSubmit)="addComment(comment.value)">
+    <form #commentFrom="ngForm" (ngSubmit)="addComment(comment.value)" [hidden]="error">
         <label for="comment">Write a a new comment</label>
         <input 
         id="comment" 
+        name="comment"
+        ngModel
         required
         #comment>
-        <button type="submit">Comment</button>
+        <button type="submit" [disabled]="commentFrom.invalid">Comment</button>
     </form>
 </div>
 

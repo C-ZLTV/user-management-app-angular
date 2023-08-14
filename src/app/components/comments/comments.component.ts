@@ -14,6 +14,7 @@ export class CommentsComponent implements OnInit{
 
   comments$!: Observable<Comment[]>
   comments!: Comment[]
+  error: Error | null  = null
 
   @Input() postId!: number
 
@@ -23,9 +24,8 @@ export class CommentsComponent implements OnInit{
  
   getComments(): void{
     this.comments$ = this.commentService.getPostComments(this.postId).pipe(
-      tap(data => {
-        this.comments = data
-        console.log(data)})
+      tap(data => this.comments = data),
+      tap({error: (error: Error) => this.error = error}),
     )
   }
 
@@ -37,11 +37,8 @@ export class CommentsComponent implements OnInit{
       email: 'example.com',
       body,
     }
-
-    if(comment.body){
-      this.comments.push(comment as Comment)
-    }
-  
+    
+    this.comments.push(comment as Comment)
     this.commentService.addComment(comment).
     subscribe()
   }

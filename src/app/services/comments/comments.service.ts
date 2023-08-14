@@ -3,6 +3,7 @@ import {HttpClient, HttpHeaders} from '@angular/common/http'
 import {Comment} from './comments'
 import { map, Observable } from 'rxjs';
 import { AuthService } from 'src/app/auth/auth.service';
+import { catchError, throwError } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -17,7 +18,11 @@ export class CommentsService {
   
   getCommentsObs(){
     const headers: HttpHeaders = this.auth.getHeaders()
-    return this.http.get<Comment[]>(this.url, {headers})
+    return this.http.get<Comment[]>(this.url, {headers}).pipe(
+      catchError(() => {
+        return throwError(() => new Error('Couldn\'t load users'))
+      })
+    )
   }
 
   getPostComments(id: number): Observable<Comment[]>{
