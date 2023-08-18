@@ -7,7 +7,7 @@ import { Observable, tap } from 'rxjs';
 @Component({
   selector: 'app-user-posts',
   templateUrl: './user-posts.component.html',
-  styleUrls: ['./user-posts.component.scss']
+  styleUrls: ['./user-posts.component.css']
 })
 export class UserPostsComponent implements OnInit{
 

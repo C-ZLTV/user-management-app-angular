@@ -1,0 +1,44 @@
+
+.nav-bar {
+    margin-top: 1rem;
+    text-align: center;
+}
+
+.nav-btn {
+    background-color: transparent;
+    border: none;
+    color: var(--secondary-color);
+    font-weight: 700;
+    transition: color 0.15s;
+    font-size: 2rem;
+}
+
+.nav-btn.selected{
+    color: var(--accent-color-dark);
+    border-bottom: 3px solid var(--accent-color-dark);
+    text-shadow: 2px 2px 2px rgba(26, 19, 41, 0.778);
+    transition: color 0.2s, border-bottom 0.2s, text-shadow 0.2s ;
+}
+
+.nav-logout-btn{
+    font-size: 0.75rem;
+    opacity: 0.7;
+}
+
+@media screen and (min-width: 760px){
+
+    .nav-bar{
+        background-color: var(--primary-color);
+        position: fixed;
+        top: 0;
+        width: 100%;
+        padding: 0.75rem;
+        overflow: hidden;
+        z-index: 9;
+        text-align: end;
+    }
+
+    .nav-btn:hover {
+        color: var(--accent-color-dark)
+    }
+}

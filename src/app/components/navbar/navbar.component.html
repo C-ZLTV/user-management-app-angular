@@ -1,12 +1,16 @@
+
 <div *ngIf="isLoggedIn; else login">
-    <button routerLink="users">Users</button>
-    <button routerLink="posts">Posts</button>
-    <button (click)="logout()">Logout</button>
+        <nav class="nav-bar">
+            <button *ngFor="let button of buttons" class="nav-btn" [class.selected]="button.selected" (click)="selectButton(button)" [routerLink]="[button.routerLink]">
+                {{button.label}}
+            </button>
+            <button class="nav-btn nav-logout-btn" (click)="logout()">Logout</button>
+        </nav>
 </div>
 
 <ng-template #login >
-    <div>
-        <button routerLink="homepage">Home</button>
-        <button routerLink="login">Login</button>
-    </div>
+    <nav class="nav-bar">
+        <button class="nav-btn" routerLink="homepage">Home</button>
+        <button class="nav-btn" routerLink="login">Login</button>
+    </nav>
 </ng-template>

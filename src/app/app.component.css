@@ -1,0 +1,5 @@
+.main-wrapper {
+    margin-inline: auto;
+    width: min(90%, 760px);
+    margin-top: 4rem;
+}
