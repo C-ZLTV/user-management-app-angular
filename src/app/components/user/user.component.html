@@ -1,14 +1,20 @@
 <div *ngIf="user$ | async as user; else loading">
-    <h3>{{ user.name }}</h3>
-    <p>Id: {{ user.id }}</p>
+    <div class="user-info">
+      <h3 class="user-name">{{ user.name }}</h3>
+      <div [class.active]="user.status === 'active'"></div>
+      <p>Id: {{ user.id }}</p>
+      <p>Gender: {{user.gender}}</p>
+      <p>Email: {{user.email}}</p>
+    </div>
 
     <app-user-posts [userId]="id"></app-user-posts>
+    <button (click)="gotoUsers()" class="go-back-btn">Go back</button>
 </div>
 
 <ng-template #loading>
-  <p>Loading</p>
+  <div class="loading">
+    <p>Loading User...</p>
+  </div>
 </ng-template>
-
-<button (click)="gotoUsers()">Go back</button>
 
   

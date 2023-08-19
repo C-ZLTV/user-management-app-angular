@@ -1,0 +1,25 @@
+.go-back-btn {
+    background-color: var(--accent-color-dark);
+    color: var(--secondary-color);
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    font-weight: 700;
+}
+
+.user-info {
+    border-bottom: 1px solid var(--secondary-color);
+}
+
+.user-name {
+    display: inline-block;
+    margin-right: 0.5rem;
+}
+
+.active {
+    width: 10px;
+    height: 10px;
+    border-radius: 100%;
+    background-color: var(--accent-color-light);
+    display: inline-block;
+}

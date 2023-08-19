@@ -15,15 +15,22 @@ export class UserPostsComponent implements OnInit{
 
   ngOnInit(): void {
     this.getUserPosts()
+    console.log(this.userId)
   }
 
   @Input() userId!: number
   
   userPosts$!: Observable<Post[]>
 
+  emptyMessage = ''
+
   getUserPosts() {
     this.userPosts$ = this.postService.getUserPosts(this.userId).pipe(
-      tap(data => console.log(data))
+      tap(data => {
+        if (data.length === 0){
+          this.emptyMessage = 'Not posts yet'
+        }
+      })
     )
   }
 }

@@ -30,9 +30,7 @@ export class UserComponent implements OnInit{
     getUser(){
       this.user$ = this.route.paramMap.pipe(
         switchMap((params: ParamMap) => this.usersService.getUser(Number(params.get('id')!))),
-        tap(data => {
-          this.id = Number(data.id)
-          console.log(this.id)}));
+        tap(data => this.id = Number(data.id)));
     }
 
     gotoUsers() {
