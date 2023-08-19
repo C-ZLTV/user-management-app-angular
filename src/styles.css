@@ -20,7 +20,7 @@ body {
 
 a {
     text-decoration: none;
-    color: var(--secondary-color);
+    color: var(--primary-color);
 }
 
 ul {
@@ -32,4 +32,12 @@ ul {
 img {
     display: block;
     width: 100%;
+}
+
+.loading {
+    text-align: center;
+}
+
+.error {
+    text-align: center;
 }

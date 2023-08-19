@@ -1,45 +1,55 @@
-<h1>Users List</h1>
+<h3 *ngIf="error" class="error">{{error}}</h3>
 
-<h3 *ngIf="error">{{error}}</h3>
-
-<div *ngIf="users$ | async; else loading">
+<div *ngIf="users$ | async; else loading" class="users-wrapper">
   <app-search-user [hidden]="error"></app-search-user>
-  <ul>
-    <li *ngFor="let user of users">
+  <ul class="users">
+    <li *ngFor="let user of users" class="user">
+      <div [class.active]="user.status === 'active'"></div>
         <a routerLink="user/{{user.id}}">
-          {{user.name}} {{user.status}}
+          {{user.name}}
         </a>
-        <button (click)="deleteUser(user)">Delete</button>
+        <button (click)="deleteUser(user)" class="delete-btn">x</button>
       </li>
   </ul>
 
-  <form #userDetails="ngForm" (ngSubmit)="addUser(email.value, gender.value, name.value)" [hidden]="error">
-    <label for="email">Email*</label>
-    <input 
-    id="email" 
-    name="email"
-    ngModel
-    required
-    #email>
-    <label for="gender">Gender*</label>
-    <input 
-    id="gender"
-    name="gender"
-    ngModel
-    required
-    #gender>
-    <label for="name">Name*</label>
-    <input
-    id="name"
-    name="name"
-    ngModel
-    required
-    #name>
-    <p [hidden]="!userDetails.touched">All fields are required</p>
-    <button type="submit" [disabled]="userDetails.invalid">Add User</button>
-  </form>
+  <div class="post-form-wrapper">
+    <h3>Add a new user</h3>
+    <form #userDetails="ngForm" (ngSubmit)="addUser(email.value, gender.value, name.value)" [hidden]="error" class="post-form">
+      <!-- <label for="email">Email*</label> -->
+      <input
+      class="post-input"
+      placeholder="Email*"
+      id="email"
+      name="email"
+      ngModel
+      required
+      #email>
+      <!-- <label for="gender">Gender*</label> -->
+      <input
+      class="post-input"
+      placeholder="Gender*"
+      id="gender"
+      name="gender"
+      ngModel
+      required
+      #gender>
+      <!-- <label for="name">Name*</label> -->
+      <input
+      class="post-input"
+      placeholder="Name*"
+      id="name"
+      name="name"
+      ngModel
+      required
+      #name>
+      <!-- <p [hidden]="!userDetails.invalid">All fields are required</p> -->
+      <button type="submit" [disabled]="userDetails.invalid" class="post-btn" [class.disabled]="userDetails.invalid">Add User</button>
+    </form>
+  </div>
 </div>
 
 <ng-template #loading>
-  <p>loading</p>
+  <div class="loading">
+    <p>Loading Users...</p>
+  </div>
 </ng-template>
