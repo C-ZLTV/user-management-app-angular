@@ -1,8 +1,13 @@
-<div>
-    <label for="search-user-box">Hero Search</label>
-    <input #searchUserInput id="search-user-box" (input)="search(searchUserInput.value)" />
-    <ul>
-        <li *ngFor="let user of users$ | async">
+<div class="search-wrapper">
+        <label for="search-user-box" class="search-label">Search User</label>
+        <input
+        class="search-input"
+        #searchUserInput
+        id="search-user-box"
+        (input)="search(searchUserInput.value)"/>
+
+    <ul class="users-found">
+        <li *ngFor="let user of users$ | async" class="user-found">
             <a routerLink="/users/user/{{user.id}}">
                 {{user.name}}
             </a>
