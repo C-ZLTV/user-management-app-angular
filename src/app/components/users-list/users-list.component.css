@@ -1,13 +1,11 @@
-.users-wrapper {
+.users-wrapper,
+.users  {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 .users {
     margin-bottom: 2rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
 }
 
 .user {

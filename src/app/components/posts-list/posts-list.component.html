@@ -1,27 +1,29 @@
-<h1>Posts List</h1>
-
 <h3 *ngIf="error">{{error}}</h3>
 
-<div *ngIf="posts$ | async; else loading">
-
-  <form [formGroup]="postForm" (ngSubmit)="addPost(title.value, body. value)" [hidden]="error">
-    <label for="post-title">title</label>
-    <input id="post-title" #title formControlName="title">
-    <label for="post-body">body</label>
-    <input id="post-body" #body formControlName="body">
-    <button [disabled]="postForm.invalid">Post</button>
-  </form>
+<div *ngIf="posts$ | async; else loading" class="posts-wrapper">
   
-    <ul>
+    <ul class="posts">
       <li class="post" *ngFor="let post of posts$ | async; index as i">
         <a routerLink="/post/{{post.id}}" >
           <p>{{post.title}}</p>
-          <p>{{post.body}}</p>
         </a>
       </li>
     </ul>
   </div>
+
+  <div class="form-wrapper">
+    <h3>Add a post</h3>
+    <form [formGroup]="postForm" (ngSubmit)="addPost(title.value, body. value)" [hidden]="error" class="form">
+      <!-- <label for="post-title">title</label> -->
+      <input class="post-input" placeholder="Title" id="post-title" #title formControlName="title">
+      <!-- <label for="post-body">body</label> -->
+      <input class="post-input" placeholder="Body" id="post-body" #body formControlName="body">
+      <button class="post-btn" [class.disabled]="postForm.invalid" [disabled]="postForm.invalid">Post</button>
+    </form>
+  </div>
   
   <ng-template #loading>
-    <p>loading</p>
+    <div class="loading">
+      <p>Loading Posts... </p>
+    </div>
   </ng-template>
