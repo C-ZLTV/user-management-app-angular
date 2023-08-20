@@ -1,0 +1,7 @@
+a {
+    color: var(--secondary-color)
+}
+
+.post {
+    margin-bottom: 1rem;
+}

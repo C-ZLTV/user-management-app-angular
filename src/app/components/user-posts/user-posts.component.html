@@ -1,7 +1,7 @@
 <div *ngIf="userPosts$ | async; else loading">
     <p>{{emptyMessage}}</p>
     <ul *ngFor="let post of userPosts$ | async">
-        <li>
+        <li class="post">
             <a routerLink="/post/{{post.id}}">
                 <h4>{{post.title}}</h4>
             </a>
