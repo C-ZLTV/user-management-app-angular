@@ -9,7 +9,7 @@
     </ul>
 
     <form #commentFrom="ngForm" (ngSubmit)="addComment(comment.value)" [hidden]="error" class="comment-form">
-        <label for="comment">Write a a new comment</label>
+        <label class="comment-label" for="comment">Write a new comment</label>
         <input 
         class="comment-input"
         id="comment" 
