@@ -11,13 +11,13 @@
     <form #commentFrom="ngForm" (ngSubmit)="addComment(comment.value)" [hidden]="error" class="comment-form">
         <label class="comment-label" for="comment">Write a new comment</label>
         <input 
-        class="comment-input"
+        class="comment-input input"
         id="comment" 
         name="comment"
         ngModel
         required
         #comment>
-        <button class="comment-btn" type="submit" [disabled]="commentFrom.invalid">Comment</button>
+        <button class="btn submit-btn" type="submit" [disabled]="commentFrom.invalid" [class.disabled]="commentFrom.invalid">Comment</button>
     </form>
 </div>
 

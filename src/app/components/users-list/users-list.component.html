@@ -19,7 +19,7 @@
         <form #userDetails="ngForm" (ngSubmit)="addUser(email.value, gender.value, name.value)" [hidden]="error" class="post-form">
           <!-- <label for="email">Email*</label> -->
           <input
-          class="post-input"
+          class="input"
           placeholder="Email*"
           id="email"
           name="email"
@@ -28,7 +28,7 @@
           #email>
           <!-- <label for="gender">Gender*</label> -->
           <input
-          class="post-input"
+          class="input"
           placeholder="Gender*"
           id="gender"
           name="gender"
@@ -37,7 +37,7 @@
           #gender>
           <!-- <label for="name">Name*</label> -->
           <input
-          class="post-input"
+          class="input"
           placeholder="Name*"
           id="name"
           name="name"
@@ -45,7 +45,7 @@
           required
           #name>
           <!-- <p [hidden]="!userDetails.invalid">All fields are required</p> -->
-          <button type="submit" [disabled]="userDetails.invalid" class="post-btn" [class.disabled]="userDetails.invalid">Add User</button>
+          <button type="submit" [disabled]="userDetails.invalid" class="submit-btn btn" [class.disabled]="userDetails.invalid">Add User</button>
         </form>
       </div>
     </div>

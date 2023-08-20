@@ -45,3 +45,44 @@ img {
 .main-wrapper {
     padding-top: 3rem;
 }
+
+.input{
+    background-color: var(--primary-color);
+    border: 1px solid var(--secondary-color);
+    color: var(--secondary-color);
+    border-radius: 10px;
+    padding: 0.5rem 4rem 0.5rem 0.5rem;
+}
+
+.btn {
+    font-weight: 700;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: opacity 0.15s;
+}
+
+.btn:hover{
+    opacity: 0.8;
+}
+.submit-btn{
+    background-color: var(--accent-color-dark);
+    color: var(--secondary-color);
+}
+
+.go-back-btn {
+    background-color: var(--accent-color-light);
+    color: var(--primary-color);
+}
+
+.disabled {
+    opacity: 0.5;
+}
+
+.active {
+    width: 10px;
+    height: 10px;
+    border-radius: 100%;
+    background-color: rgb(152, 220, 96);
+}

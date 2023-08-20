@@ -15,10 +15,10 @@
       <h3>Add a post</h3>
       <form [formGroup]="postForm" (ngSubmit)="addPost(title.value, body. value)" [hidden]="error" class="form">
         <!-- <label for="post-title">title</label> -->
-        <input class="post-input" placeholder="Title" id="post-title" #title formControlName="title">
+        <input class="input" placeholder="Title" id="post-title" #title formControlName="title">
         <!-- <label for="post-body">body</label> -->
-        <input class="post-input" placeholder="Body" id="post-body" #body formControlName="body">
-        <button class="post-btn" [class.disabled]="postForm.invalid" [disabled]="postForm.invalid">Post</button>
+        <input class="input" placeholder="Body" id="post-body" #body formControlName="body">
+        <button class="submit-btn btn" [class.disabled]="postForm.invalid" [disabled]="postForm.invalid">Post</button>
       </form>
     </div>
   </div>
