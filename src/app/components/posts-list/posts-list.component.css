@@ -22,7 +22,7 @@ a {
 .form {
     display: flex ;
     flex-direction: column;
-    align-items: center;
+    align-items: start;
     gap: 0.5rem
 }
 
@@ -45,4 +45,13 @@ a {
 
 .disabled {
     opacity: 0.5;
+}
+
+@media  screen and (min-width: 760px ) {
+    .posts-wrapper{
+        flex-direction: row-reverse;
+        align-items: start;
+    }
+
+
 }

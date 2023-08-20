@@ -1,6 +1,4 @@
-
 .nav-bar {
-    margin-top: 1rem;
     text-align: center;
 }
 
@@ -26,15 +24,14 @@
 }
 
 @media screen and (min-width: 760px){
-
     .nav-bar{
         background-color: var(--primary-color);
         position: fixed;
         top: 0;
         width: 100%;
-        padding: 0.75rem;
+        padding: 0.5rem;
         overflow: hidden;
-        z-index: 9;
+        z-index: 999;
         text-align: end;
     }
 

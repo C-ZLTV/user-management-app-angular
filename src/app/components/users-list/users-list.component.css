@@ -82,3 +82,12 @@
 .post-btn.disabled {
     opacity: 0.6;
 }
+
+@media screen and (min-width: 760px){
+    .users-wrapper {
+        flex-direction: row-reverse;
+        align-items: start;
+        justify-content: center;
+        gap: 2rem;
+    }
+}
