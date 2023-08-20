@@ -19,8 +19,7 @@ a {
     margin-bottom: 2rem;
 }
 
-.form,
-.form-wrapper {
+.form {
     display: flex ;
     flex-direction: column;
     align-items: center;
