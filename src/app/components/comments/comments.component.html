@@ -3,19 +3,21 @@
 <h4 *ngIf="error">{{error}}</h4>
 
 <div *ngIf="comments$ | async">
-    <ul *ngFor="let comment of comments">
-        <li>{{comment.body}}</li>
+    <p>{{emptyMessage}}</p>
+    <ul *ngFor="let comment of comments" class="comments">
+        <li class="comment">{{comment.body}}</li>
     </ul>
 
-    <form #commentFrom="ngForm" (ngSubmit)="addComment(comment.value)" [hidden]="error">
+    <form #commentFrom="ngForm" (ngSubmit)="addComment(comment.value)" [hidden]="error" class="comment-form">
         <label for="comment">Write a a new comment</label>
         <input 
+        class="comment-input"
         id="comment" 
         name="comment"
         ngModel
         required
         #comment>
-        <button type="submit" [disabled]="commentFrom.invalid">Comment</button>
+        <button class="comment-btn" type="submit" [disabled]="commentFrom.invalid">Comment</button>
     </form>
 </div>
 

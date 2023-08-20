@@ -16,6 +16,8 @@ export class CommentsComponent implements OnInit{
   comments!: Comment[]
   error: Error | null  = null
 
+  emptyMessage = ""
+
   @Input() postId!: number
 
   ngOnInit(): void {
@@ -25,6 +27,7 @@ export class CommentsComponent implements OnInit{
   getComments(): void{
     this.comments$ = this.commentService.getPostComments(this.postId).pipe(
       tap(data => this.comments = data),
+      tap(data => {if (data.length === 0) this.emptyMessage = 'Not comments yet' }),
       tap({error: (error: Error) => this.error = error}),
     )
   }
