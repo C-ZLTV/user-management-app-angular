@@ -41,3 +41,7 @@ img {
 .error {
     text-align: center;
 }
+
+.main-wrapper {
+    padding-top: 3rem;
+}

@@ -1,29 +1,31 @@
-<h3 *ngIf="error">{{error}}</h3>
-
-<div *ngIf="posts$ | async; else loading" class="posts-wrapper">
+<div class="main-wrapper">
+  <h3 *ngIf="error">{{error}}</h3>
   
-    <ul class="posts">
-      <li class="post" *ngFor="let post of posts$ | async; index as i">
-        <a routerLink="/post/{{post.id}}" >
-          <p>{{post.title}}</p>
-        </a>
-      </li>
-    </ul>
-
-  <div class="form-wrapper">
-    <h3>Add a post</h3>
-    <form [formGroup]="postForm" (ngSubmit)="addPost(title.value, body. value)" [hidden]="error" class="form">
-      <!-- <label for="post-title">title</label> -->
-      <input class="post-input" placeholder="Title" id="post-title" #title formControlName="title">
-      <!-- <label for="post-body">body</label> -->
-      <input class="post-input" placeholder="Body" id="post-body" #body formControlName="body">
-      <button class="post-btn" [class.disabled]="postForm.invalid" [disabled]="postForm.invalid">Post</button>
-    </form>
-  </div>
-</div>
+  <div *ngIf="posts$ | async; else loading" class="posts-wrapper">
   
-  <ng-template #loading>
-    <div class="loading">
-      <p>Loading Posts... </p>
+      <ul class="posts">
+        <li class="post" *ngFor="let post of posts$ | async; index as i">
+          <a routerLink="/post/{{post.id}}" >
+            <p>{{post.title}}</p>
+          </a>
+        </li>
+      </ul>
+  
+    <div class="form-wrapper">
+      <h3>Add a post</h3>
+      <form [formGroup]="postForm" (ngSubmit)="addPost(title.value, body. value)" [hidden]="error" class="form">
+        <!-- <label for="post-title">title</label> -->
+        <input class="post-input" placeholder="Title" id="post-title" #title formControlName="title">
+        <!-- <label for="post-body">body</label> -->
+        <input class="post-input" placeholder="Body" id="post-body" #body formControlName="body">
+        <button class="post-btn" [class.disabled]="postForm.invalid" [disabled]="postForm.invalid">Post</button>
+      </form>
     </div>
-  </ng-template>
+  </div>
+  
+    <ng-template #loading>
+      <div class="loading">
+        <p>Loading Posts... </p>
+      </div>
+    </ng-template>
+</div>
