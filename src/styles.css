@@ -46,6 +46,10 @@ img {
     padding-top: 3rem;
 }
 
+.label {
+    font-weight: 700;
+}
+
 .input{
     background-color: var(--primary-color);
     border: 1px solid var(--secondary-color);

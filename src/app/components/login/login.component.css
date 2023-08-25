@@ -1,0 +1,26 @@
+.login-wrapper,
+form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.login-wrapper {
+    color: var(--primary-color);
+    background-color: var(--secondary-color);
+    border-radius: 10px;
+    padding: 2rem;
+}
+
+.login-input {
+    color: var(--primary-color);
+    background-color: var(--secondary-color);
+    border: 1px solid var(--primary-color) ;
+}
+
+.token-link {
+    color: var(--accent-color-dark);
+}
+

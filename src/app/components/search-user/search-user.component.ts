@@ -30,7 +30,6 @@ export class SearchUserComponent  implements OnInit{
       switchMap((input: string) => this.usersService.searchUser(input))
     );
   }
-
 }
 
 //Subject is a class provided by RxJS, used for implementing observable patterns, in particular it can be used to emit values and can be subscribed to by other parts of the application to react to those emitted values.
