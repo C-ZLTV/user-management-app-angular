@@ -1,0 +1,30 @@
+.hero-text{
+    margin-bottom: 4rem;
+}
+
+.hero-title {
+    color: #8357f4ff;
+    font-size: clamp(2rem, 3vw, 8rem)
+}
+
+.hero-subtitle{
+    font-size: clamp(1rem, 1.5vw, 3rem)
+}
+
+.learn-more-btn{
+    font-size: clamp(1rem, 1.5vw, 3rem);
+    display: block;
+    margin-bottom: 1.5rem;
+}
+
+a {
+    font-size: clamp(1rem, 1.5vw, 3rem);
+    color: var(--accent-color-dark)
+}
+
+@media screen and (min-width: 760px){
+    .learn-more-btn{
+        display: inline-block;
+        margin-right: 1.5rem;
+    }
+}
