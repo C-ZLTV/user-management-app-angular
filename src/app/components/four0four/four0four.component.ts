@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-four0four',
@@ -7,4 +8,9 @@ import { Component } from '@angular/core';
 })
 export class Four0fourComponent {
 
+  constructor(private location: Location){}
+
+  goBack(){
+    this.location.back();
+  }
 }
