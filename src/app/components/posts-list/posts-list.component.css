@@ -11,10 +11,6 @@
     width: max(60%, 12rem);
 }
 
-a {
-    color: var(--secondary-color);
-}
-
 .form-wrapper {
     margin-bottom: 2rem;
 }

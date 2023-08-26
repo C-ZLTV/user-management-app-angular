@@ -1,3 +1,7 @@
+a {
+    color: var(--primary-color);
+}
+
 .users-wrapper,
 .users  {
     display: flex;
