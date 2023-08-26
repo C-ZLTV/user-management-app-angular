@@ -22,6 +22,7 @@ import { UserPostsComponent } from './components/user-posts/user-posts.component
 import { UsersListComponent } from './components/users-list/users-list.component';
 import { HomepageComponent } from './components/homepage/homepage.component';
 import { Four0fourComponent } from './components/four0four/four0four.component';
+import { LearnMoreComponent } from './components/learn-more/learn-more.component';
 
 
 @NgModule({
@@ -38,6 +39,7 @@ import { Four0fourComponent } from './components/four0four/four0four.component';
     NavbarComponent,
     HomepageComponent,
     Four0fourComponent,
+    LearnMoreComponent,
   ],
   imports: [
     BrowserModule,
