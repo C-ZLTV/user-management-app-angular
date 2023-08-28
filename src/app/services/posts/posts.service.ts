@@ -3,6 +3,7 @@ import {HttpClient, HttpHeaders} from '@angular/common/http'
 import {Post} from './post'
 import { Observable, catchError, map, throwError } from 'rxjs';
 import { AuthService } from 'src/app/auth/auth.service';
+import { of } from 'rxjs';
 
 
 @Injectable({
@@ -41,5 +42,13 @@ export class PostsService {
   addPost(post: Post){
     const headers: HttpHeaders = this.auth.getHeaders()
     return this.http.post<Post>(this.url, post, {headers})
+  }
+
+  searchPost(input: string): Observable<Post[]>{
+    if (!input.trim()) {
+      return of([]);
+    }
+    const headers: HttpHeaders = this.auth.getHeaders()
+    return this.http.get<Post[]>(`${this.url}/?name=${input}`, {headers}) as Observable<Post[]>
   }
 }

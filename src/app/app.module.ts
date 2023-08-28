@@ -23,6 +23,7 @@ import { UsersListComponent } from './components/users-list/users-list.component
 import { HomepageComponent } from './components/homepage/homepage.component';
 import { Four0fourComponent } from './components/four0four/four0four.component';
 import { LearnMoreComponent } from './components/learn-more/learn-more.component';
+import { PostSearchComponent } from './components/post-search/post-search.component';
 
 
 @NgModule({
@@ -40,6 +41,7 @@ import { LearnMoreComponent } from './components/learn-more/learn-more.component
     HomepageComponent,
     Four0fourComponent,
     LearnMoreComponent,
+    PostSearchComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,16 @@
+<div class="search-wrapper">
+    <label for="search-post-box" class="search-label">Search Post</label>
+    <input
+    class="input"
+    #searchPostInput
+    id="search-user-box"
+    (input)="search(searchPostInput.value)"/>
+
+<ul class="users-found">
+    <li *ngFor="let post of posts$ | async" class="user-found">
+        <a routerLink="/post/{{post.id}}">
+            {{post.title}}
+        </a>
+    </li>
+</ul>
+</div>
