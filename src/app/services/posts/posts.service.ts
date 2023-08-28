@@ -49,6 +49,6 @@ export class PostsService {
       return of([]);
     }
     const headers: HttpHeaders = this.auth.getHeaders()
-    return this.http.get<Post[]>(`${this.url}/?name=${input}`, {headers}) as Observable<Post[]>
+    return this.http.get<Post[]>(`${this.url}/?title=${input}`, {headers}) as Observable<Post[]>
   }
 }
