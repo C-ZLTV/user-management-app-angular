@@ -1,0 +1,27 @@
+.search-wrapper{
+    margin-bottom: 2rem;
+}
+
+.search-label {
+    font-weight: 700;
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+.users-found {
+    font-size: 0.9rem;
+}
+
+.user-found {
+    border: 1px solid var(--secondary-color);
+    padding: 0.25rem 0.5rem;
+    border-radius: 5px;
+    margin-bottom: 0.25rem;
+    transition: opacity 0.8;
+    overflow: hidden;
+}
+
+.user-found:hover{
+    opacity: 0.8;
+}

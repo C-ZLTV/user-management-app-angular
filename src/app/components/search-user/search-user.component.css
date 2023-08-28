@@ -1,7 +1,3 @@
-a {
-    color: var(--secondary-color);
-}
-
 .search-wrapper{
     margin-bottom: 2rem;
 }
@@ -9,16 +5,8 @@ a {
 .search-label {
     font-weight: 700;
     font-size: 1.2rem;
-    margin-right: 0.5rem;
-}
-
-.search-input{
-    background-color: var(--primary-color);
-    border: 1px solid var(--secondary-color);
-    color: var(--secondary-color);
-    border-radius: 10px;
-    padding: 0.25rem 2rem 0.25rem 0.5rem;
-    margin-bottom: 0.25rem;
+    margin-bottom: 0.5rem;
+    display: block;
 }
 
 .users-found {

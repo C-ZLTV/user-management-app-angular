@@ -1,14 +1,11 @@
-.posts-wrapper,
-.posts {
+.posts-wrapper {
     display: flex;
     flex-direction: column;
-    align-items: center;
 }
 
 .post {
     margin-bottom: 3rem;
     border-bottom: 1px solid white;
-    width: max(60%, 12rem);
 }
 
 .form-wrapper {
@@ -26,5 +23,6 @@
     .posts-wrapper{
         flex-direction: row-reverse;
         align-items: start;
+        gap: 3rem
     }
 }
