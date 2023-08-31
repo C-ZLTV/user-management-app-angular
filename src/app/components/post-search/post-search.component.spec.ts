@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { PostSearchComponent } from './post-search.component';
 
 describe('PostSearchComponent', () => {
@@ -8,7 +8,8 @@ describe('PostSearchComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [PostSearchComponent]
+      declarations: [PostSearchComponent],
+      imports: [HttpClientTestingModule]
     });
     fixture = TestBed.createComponent(PostSearchComponent);
     component = fixture.componentInstance;
