@@ -5,6 +5,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { RouterTestingModule } from '@angular/router/testing'; 
 
 import { PostsListComponent } from './posts-list.component';
+import { PostSearchComponent } from '../post-search/post-search.component';
 
 import { of } from 'rxjs';
 
@@ -24,7 +25,7 @@ describe('PostsListComponent', () => {
     ]));
 
     TestBed.configureTestingModule({
-      declarations: [PostsListComponent],
+      declarations: [PostsListComponent, PostSearchComponent],
       providers: [
         { provide: PostsService, useValue: postsServiceMock }
       ],
